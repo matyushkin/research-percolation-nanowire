@@ -1,0 +1,42 @@
+% ============================================================
+% NATURE PORTFOLIO WRAPPER: npj Computational Materials,
+%   Scientific Data, Nature Communications
+% Compile: pdflatex wrapper.tex
+% Note: Nature accepts plain LaTeX; no special class required.
+%   Many journals also accept Word — check submission guidelines.
+% ============================================================
+
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{siunitx}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{lineno}
+\linenumbers    % Nature requires line numbers
+
+% Nature-style: single column, double spaced for review
+\usepackage{setspace}
+\doublespacing
+
+\begin{document}
+
+\title{Title of the Paper}
+
+\author{Lev B. Matyushkin}
+
+\date{}
+\maketitle
+
+\begin{center}
+Independent Researcher, Jerusalem, Israel \\
+\texttt{leva.matyushkin@gmail.com}
+\end{center}
+
+\input{../main}
+
+% Nature uses numbered references, no specific style file needed
+\bibliographystyle{naturemag}
+\bibliography{../references}
+
+\end{document}

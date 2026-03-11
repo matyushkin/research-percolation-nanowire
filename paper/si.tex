@@ -1,0 +1,35 @@
+% ============================================================
+% SUPPLEMENTARY INFORMATION
+% Compile separately. Reference from main text as "see SI".
+% ============================================================
+
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,graphicx,hyperref,siunitx}
+\usepackage[margin=2.5cm]{geometry}
+
+% Reset figure/table/equation counters with S prefix
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\theequation}{S\arabic{equation}}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\setcounter{equation}{0}
+
+\begin{document}
+
+\title{Supplementary Information for:\\
+``Title of the Paper''}
+\author{Lev B. Matyushkin}
+\date{}
+\maketitle
+
+\section*{S1. Additional Derivations}
+
+\section*{S2. Convergence Tests and Finite-Size Scaling}
+
+% Always include: system size dependence, number of MC runs,
+% error bars estimation, sensitivity to parameters
+
+\section*{S3. Additional Figures}
+
+\end{document}

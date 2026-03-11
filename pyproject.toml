@@ -1,0 +1,32 @@
+[project]
+name = "research-project"
+version = "0.1.0"
+description = "Research project"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy",
+    "scipy",
+    "matplotlib",
+    "pandas",
+    "jupyter",
+    "ipykernel",
+    "networkx",       # graph algorithms (percolation, etc.)
+    "scikit-learn",   # ML
+    "tqdm",           # progress bars
+]
+
+[project.optional-dependencies]
+quantum = [
+    "qiskit",
+    "pennylane",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest",
+    "ruff",
+]

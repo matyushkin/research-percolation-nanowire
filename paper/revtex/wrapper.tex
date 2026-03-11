@@ -1,0 +1,35 @@
+% ============================================================
+% APS WRAPPER: Physical Review Letters / PRE / PRB
+% Compile: pdflatex wrapper.tex
+% ============================================================
+
+% For PRL: use [prl] instead of [pre]
+% For PRB: use [prb] instead of [pre]
+\documentclass[aps,pre,reprint,amsmath,amssymb,superscriptaddress]{revtex4-2}
+
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{dcolumn}
+\usepackage{bm}           % bold math
+\usepackage{siunitx}      % SI units
+
+\begin{document}
+
+\title{Title of the Paper}
+
+\author{Lev B. Matyushkin}
+\email{leva.matyushkin@gmail.com}
+\affiliation{Independent Researcher, Jerusalem, Israel}
+
+% Add co-authors if any:
+% \author{First Last}
+% \affiliation{Department, University, City, Country}
+
+\date{\today}
+
+\input{../main}
+
+\bibliography{../references}
+
+\end{document}

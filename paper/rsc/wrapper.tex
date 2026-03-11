@@ -1,0 +1,39 @@
+% ============================================================
+% RSC WRAPPER: Nanoscale, Digital Discovery, PCCP
+% Compile: pdflatex wrapper.tex
+% ============================================================
+
+\documentclass[twoside,twocolumn]{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{balance}
+\usepackage{times}
+\usepackage{hyperref}
+\usepackage{siunitx}
+
+% RSC article formatting
+\usepackage[top=2.1cm,bottom=2.1cm,left=1.7cm,right=1.7cm]{geometry}
+
+\begin{document}
+
+\title{\large\textbf{Title of the Paper}}
+
+\author{Lev B. Matyushkin$^{a}$}
+
+\date{}
+\maketitle
+
+\begin{flushleft}
+$^a$ Independent Researcher, Jerusalem, Israel.
+E-mail: leva.matyushkin@gmail.com
+\end{flushleft}
+
+\input{../main}
+
+\bibliographystyle{rsc}
+\bibliography{../references}
+
+\end{document}
