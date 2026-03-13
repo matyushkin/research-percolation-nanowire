@@ -45,8 +45,9 @@ Their theoretical model, however, assumed a simplified geometry
 of parallel straight cracks with equal spacing.
 In a follow-up study, Baret~\cite{Baret2025} extended the analysis
 to finite-size scaling and conductivity exponents,
-while Erg\"un~\textit{et~al.}~\cite{Ergun2025} provided experimental
-validation with ZnO nanowire networks on cracked ITO substrates.
+while Erg\"un~\textit{et~al.}~\cite{Ergun2025} developed
+shortest-path algorithms for modeling charge transport
+in random ZnO nanowire networks.
 Real cracked films exhibit complex crack topologies:
 branching networks, varying crack widths, and hierarchical patterns
 that depend on film thickness, substrate, and stress
@@ -124,7 +125,10 @@ To avoid boundary artifacts, we use periodic mirroring of seed points
 before computing the tessellation and retain only edges
 within the domain.
 Voronoi tessellations are widely used as models for random
-cracking patterns in thin films~\cite{Bohn2005,Hornig2006}.
+cracking patterns in thin
+films~\cite{Bohn2005,Hornig1996,Tarasevich2025}
+and for crack-template-based transparent conductive
+films~\cite{Tarasevich2023,Tarasevich2023b}.
 
 \subsection{Bridge percolation algorithm}
 
@@ -172,7 +176,7 @@ a spanning cluster exists.
 The percolation threshold $\eta_c$ is determined by interpolating
 $P(\eta) = 0.5$ or by bisection.
 For finite-size scaling, we vary the domain size
-$\mathcal{L}/L = 8, 10, 15, 20, 30$ and extrapolate
+$\mathcal{L}/L = 5$--$50$ and extrapolate
 $\eta_c(\mathcal{L}) \to \eta_c(\infty)$
 using the scaling ansatz
 \begin{equation}
@@ -194,11 +198,15 @@ As a benchmark, we first verify our simulation against the
 established result for monodisperse stick percolation
 without cracks.
 For a domain of size $\mathcal{L}/L = 20$ with
-200 trials per density value, we obtain a threshold
-$\eta_c \approx 5.86$, consistent
+500 trials per density value, we obtain a threshold
+$\eta_c \approx 5.80$, consistent
 with the literature value $\eta_c = 5.6372(1)$~\cite{Li2009}
 after accounting for the finite-size shift
 (see Fig.~\ref{fig:fss}).
+The systematic overestimation at finite $\mathcal{L}$
+is a well-known effect~\cite{Li2009,Tarasevich2018}
+and is corrected by the finite-size scaling analysis
+described below.
 
 \subsection{Bridge percolation: parallel vs.\ Voronoi cracks}
 
@@ -207,19 +215,20 @@ after accounting for the finite-size shift
 \caption{\label{fig:bridge_curves}%
 Bridge percolation probability $P(\eta)$ for parallel cracks
 (3~cracks, blue circles) and Voronoi cracks
-(15~seeds, orange squares) at domain size $\mathcal{L}/L = 10$.
-Dashed vertical lines mark the estimated thresholds.
-The parallel-crack threshold is dramatically lower than
-the Voronoi threshold.
+(20~seeds, orange squares) at domain size $\mathcal{L}/L = 15$
+with 300 MC trials per point.
+Dashed vertical lines mark the estimated thresholds
+$\eta_c^\mathrm{parallel} \approx 1.3$ and
+$\eta_c^\mathrm{Voronoi} \approx 5.6$.
 }
 \end{figure}
 
 Figure~\ref{fig:bridge_curves} compares the percolation
 probability $P(\eta)$ for parallel cracks and Voronoi crack
-networks at fixed crack density.
+networks at domain size $\mathcal{L}/L = 15$.
 The parallel-crack model yields a significantly lower threshold
-($\eta_c^\mathrm{parallel} \approx 3$) than the Voronoi model
-($\eta_c^\mathrm{Voronoi} \approx 5.8$).
+($\eta_c^\mathrm{parallel} \approx 1.3$) than the Voronoi model
+($\eta_c^\mathrm{Voronoi} \approx 5.6$), a factor of $\sim 4$.
 
 This large difference arises because parallel cracks partition
 the domain into long strips that are easy to bridge:
@@ -296,26 +305,34 @@ reducing the effective bridging requirement.
 \begin{figure}[t]
 \includegraphics[width=\columnwidth]{../../figures/finite_size_scaling.pdf}
 \caption{\label{fig:fss}%
-Finite-size scaling of the percolation threshold.
-$\eta_c(\mathcal{L})$ for standard stick percolation (no cracks,
-green triangles), parallel-crack bridge percolation (blue circles),
-and Voronoi-crack bridge percolation (orange squares).
-The horizontal dashed line marks the literature value
+Finite-size scaling of the percolation threshold
+$\eta_c(\mathcal{L})$ vs.\ $1/(\mathcal{L}/L)$
+for standard stick percolation (no cracks, green triangles),
+parallel-crack bridge percolation (blue circles),
+and Voronoi-crack bridge percolation (orange squares,
+error bars show standard deviation over 10 crack realizations).
+Dashed lines: fits to Eq.~\eqref{eq:fss}.
+The horizontal dotted line marks the literature value
 $\eta_c(\infty) = 5.637$~\cite{Li2009}.
 }
 \end{figure}
 
 To extract thermodynamic-limit thresholds, we measure
 $\eta_c(\mathcal{L})$ for domain sizes
-$\mathcal{L}/L = 8, 10, 15, 20$ and $30$.
-For standard stick percolation (no cracks), we obtain
-$\eta_c = 5.96, 5.95, 5.84, 5.90$ for $\mathcal{L}/L = 8, 10,
-15, 20$, respectively.
-The systematic decrease with increasing domain size is consistent
-with the finite-size scaling ansatz of Eq.~\eqref{eq:fss}
-and the literature value $\eta_c(\infty) = 5.6372$~\cite{Li2009}.
+$\mathcal{L}/L = 5, 8, 10, 15, 20, 30, 40$, and~$50$
+with 500 MC trials per bisection step.
+For standard stick percolation (no cracks), we obtain a
+monotonically decreasing sequence
+$\eta_c = 6.11, 6.02, 5.92, 5.86, 5.80, \ldots$ for
+$\mathcal{L}/L = 5, 8, 10, 15, 20, \ldots$,
+converging toward the literature value
+$\eta_c(\infty) = 5.6372(1)$~\cite{Li2009}
+(Fig.~\ref{fig:fss}).
+Fitting to the scaling ansatz of Eq.~\eqref{eq:fss}
+yields the extrapolated threshold and the correlation length
+exponent~$\nu$.
 
-The finite-size shift $\Delta\eta_c \approx 0.2$--$0.3$ at
+The finite-size shift $\Delta\eta_c \approx 0.15$ at
 $\mathcal{L}/L = 20$ is typical for stick
 percolation~\cite{Li2009} and sets the systematic uncertainty
 of our bridge percolation thresholds at the same domain size.
@@ -330,7 +347,7 @@ Table~\ref{tab:ensemble} summarizes the ensemble statistics.
 \caption{\label{tab:ensemble}%
 Bridge percolation threshold $\eta_c$ averaged over
 30 independent Voronoi crack realizations
-(domain size $\mathcal{L}/L = 12$, 60--80 MC trials per point).
+(domain size $\mathcal{L}/L = 12$).
 }
 \begin{ruledtabular}
 \begin{tabular}{ccccc}
@@ -339,7 +356,10 @@ $\eta_c^{\min}$ & $\eta_c^{\max}$ \\
 \hline
 5  & 2.21 & 0.15 & 2.08 & 2.55 \\
 10 & 5.55 & 0.42 & 3.33 & 5.83 \\
-15 & 5.63 & 0.10 & 5.52 & 5.83 \\
+15 & 5.62 & 0.10 & 5.52 & 5.83 \\
+20 & 5.66 & 0.07 & 5.52 & 5.83 \\
+30 & 5.67 & 0.09 & 5.52 & 5.83 \\
+50 & 5.65 & 0.07 & 5.52 & 5.83 \\
 \end{tabular}
 \end{ruledtabular}
 \end{table}
@@ -352,9 +372,11 @@ a pronounced outlier at $\eta_c = 3.33$,
 corresponding to a Voronoi realization where the crack network
 fails to fully partition the domain in the $x$-direction,
 leaving a percolating conducting corridor.
-By $n_s = 15$, the variance drops to $\sim 2\%$:
-the crack network reliably fragments the domain,
-and the threshold converges to the standard value.
+By $n_s \geq 15$, the variance drops to $\sim 1$--$2\%$
+and $\langle\eta_c\rangle$ converges to $5.64 \pm 0.08$,
+remaining stable up to $n_s = 50$ (Table~\ref{tab:ensemble}).
+The crack network reliably fragments the domain,
+and the threshold converges to the standard stick percolation value.
 
 The large variance at intermediate crack densities has practical
 implications: for a given cracked film, the required nanowire
@@ -379,11 +401,15 @@ with the effect most pronounced for dense crack networks.
 Real AgNW batches have a log-normal length distribution with
 polydispersity index $\mathrm{PD} \approx 0.3$--$0.5$~\cite{Bergin2012}.
 The effect of polydispersity on standard stick percolation has been
-studied analytically and numerically: Chatterjee and
-Tarasevich~\cite{Chatterjee2024} derived a scaling formula
-$\eta_c(\mathrm{PD}) / \eta_c(0) = 1/(1+\mathrm{PD}^2)$,
-and Coupette and Schilling~\cite{Coupette2025} demonstrated
-the universality of this reduction across particle shapes.
+studied analytically and numerically:
+Chatterjee~\cite{Chatterjee2010} derived a scaling formula
+$\eta_c(\mathrm{PD}) / \eta_c(0) = 1/(1+\mathrm{PD}^2)$
+within a Bethe lattice approach,
+Mecke and Seyfried~\cite{Mecke2002} demonstrated
+a strong dependence of percolation thresholds on polydispersity
+for continuum systems,
+and Chatterjee and Tarasevich~\cite{Chatterjee2024} extended
+this analysis to partially aligned polydisperse sticks.
 Figure~\ref{fig:polydispersity} shows $\eta_c(\mathrm{PD})$
 for all three scenarios.
 
@@ -410,7 +436,7 @@ percolation confirm that dense Voronoi networks
 effectively reduce bridge percolation to standard stick percolation.
 This polydispersity-induced reduction is consistent with the
 $1/(1+\mathrm{PD}^2)$ scaling predicted for standard stick
-percolation~\cite{Chatterjee2024,Coupette2025},
+percolation~\cite{Chatterjee2010,Mecke2002},
 further supporting the conclusion that dense crack networks
 do not modify the percolation universality class.
 Sampson~\textit{et~al.}~\cite{Sampson2023} showed that clustering
@@ -424,14 +450,15 @@ that introduce spatial correlations.
 The central result of this work is that the bridge percolation
 threshold depends strongly on crack topology.
 The parallel-crack model of Baret~\textit{et~al.}~\cite{Baret2024}
-predicts $\eta_c^\mathrm{parallel} \approx 1$--$2$,
+yields $\eta_c^\mathrm{parallel} \approx 1.3$
+(at constant crack density with $\mathcal{L}/L = 15$),
 suggesting that bridge percolation requires far less nanowire
 material than standalone NW electrodes.
 Our simulations confirm this for parallel cracks but reveal that
 random (Voronoi) crack networks yield
-$\eta_c^\mathrm{Voronoi} \approx 5.5$--$5.7$, which is
-$3$--$5\times$ higher and essentially equal to the standard
-stick percolation threshold.
+$\eta_c^\mathrm{Voronoi} \approx 5.6$, which is
+$\sim 4\times$ higher and essentially equal to the standard
+stick percolation threshold $\eta_c = 5.637$.
 
 \textit{Physical interpretation.}---The difference originates
 from the dimensionality of the bridging problem.
@@ -450,26 +477,30 @@ percolate on their own.
 
 \textit{Comparison with experiment.}---The
 experimentally observed $\sim 35\times$ material reduction
-reported in Ref.~\cite{Baret2024} is consistent with our
-parallel-crack threshold ($\eta_c^\mathrm{parallel} / \eta_c
-\approx 1/4$--$1/3$, implying a material reduction of
-$3$--$5\times$ in dimensionless density, which translates
-to a larger factor in actual wire count due to the different
-geometry).
-However, this advantage may be largely specific to the
-parallel-crack geometry used in their experiment
-(uniaxially strained ITO).
-Erg\"un~\textit{et~al.}~\cite{Ergun2025} measured a bridge
-threshold of $\eta_c \approx 5.625$ for ZnO NW on cracked ITO
-with isotropic crack patterns, in excellent agreement with our
-Voronoi-crack predictions and confirming that random crack
-topologies yield thresholds close to the standard value.
-Baret~\cite{Baret2025} reported a conductivity exponent
-$t = 1.77 \pm 0.01$ for bridge percolation, consistent with
-two-dimensional universality.
-For films with random crack patterns (e.g., thermally cracked
-or fatigue-cracked ITO), our results predict that the material
-saving would be significantly smaller.
+reported by Baret~\textit{et~al.}~\cite{Baret2024} was achieved
+with uniaxially strained ITO, which produces approximately
+parallel cracks.
+Our parallel-crack threshold
+$\eta_c^\mathrm{parallel} \approx 1.3$ is consistent with
+their observation:
+$\eta_c^\mathrm{parallel} / \eta_c^\mathrm{standard}
+\approx 0.23$, i.e., the dimensionless density is reduced
+by a factor of~$4$, which translates to an even larger
+reduction in wire count because bridge percolation requires
+sticks to cross specific crack lines rather than span the
+full domain.
+However, this dramatic advantage is specific to the
+parallel-crack geometry.
+Baret~\cite{Baret2025} extended the bridge percolation analysis
+to finite-size scaling and confirmed two-dimensional
+universality of the transition.
+For films with random (isotropic) crack patterns---e.g.,
+thermally cracked or fatigue-cracked ITO---our results
+predict that the material saving over standalone NW
+electrodes is negligible, since
+$\eta_c^\mathrm{Voronoi} \approx \eta_c^\mathrm{standard}$.
+This prediction awaits direct experimental verification
+with randomly cracked substrates.
 
 \textit{Critical crack density for parallel cracks.}---The
 sharp transition at $n_c \approx \mathcal{L}/L$ reveals a
@@ -516,7 +547,9 @@ stress-correlated crack patterns or hierarchical cracking
 observed in some systems~\cite{Bohn2005}.
 (iv) Our simulations are two-dimensional; real NW networks on
 cracked films have a finite thickness that could enable
-additional out-of-plane connections.
+additional out-of-plane connections, as discussed in the
+quasi-three-dimensional model of
+Tarasevich and Eserkepov~\cite{Tarasevich2026}.
 
 \section{Conclusion}
 
@@ -524,16 +557,21 @@ We have studied bridge percolation of nanowire networks on
 cracked conducting substrates, comparing parallel-crack and
 random Voronoi crack topologies.
 Our main findings are:
-(i) Voronoi crack networks require $3$--$5\times$ higher
-nanowire densities for bridge percolation than parallel cracks;
+(i) Voronoi crack networks require $\sim 4\times$ higher
+nanowire densities for bridge percolation than parallel cracks
+($\eta_c^\mathrm{Voronoi} \approx 5.6$ vs.\
+$\eta_c^\mathrm{parallel} \approx 1.3$);
 (ii) for dense Voronoi networks ($n_s \geq 15$), the bridge
 threshold converges to the standard stick percolation value
-$\eta_c \approx 5.64$, indicating that the conducting substrate
+$\eta_c = 5.637$, indicating that the conducting substrate
 provides no benefit;
 (iii) the threshold exhibits large sample-to-sample fluctuations
-at intermediate crack densities;
-and (iv) nanowire length polydispersity reduces the Voronoi
-bridge threshold by up to $42\%$ at $\mathrm{PD} = 1.0$.
+at intermediate crack densities ($\sigma/\langle\eta_c\rangle
+\approx 8\%$ at $n_s = 10$);
+and (iv) nanowire length polydispersity reduces the threshold
+by $\sim 18\%$ at realistic PD~$= 0.5$ and up to $42\%$ at
+$\mathrm{PD} = 1.0$, following the $1/(1+\mathrm{PD}^2)$
+scaling of Chatterjee~\cite{Chatterjee2010}.
 These results demonstrate that crack topology is a critical
 factor in designing nanowire-bridged transparent electrodes
 and that the parallel-crack model significantly overestimates
