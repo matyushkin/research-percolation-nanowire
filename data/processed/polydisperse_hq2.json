@@ -1,0 +1,23 @@
+{
+  "description": "HQ polydispersity for Fig. 5 (v2, fine grid)",
+  "parameters": {
+    "n_trials": 250,
+    "domain_size": 15.0
+  },
+  "results": {
+    "standard": {
+      "0.00": {
+        "polydispersity": 0.0,
+        "eta_c": 5.5703
+      },
+      "0.02": {
+        "polydispersity": 0.02,
+        "eta_c": 5.7109
+      },
+      "0.05": {
+        "polydispersity": 0.05,
+        "eta_c": 5.5703
+      }
+    }
+  }
+}

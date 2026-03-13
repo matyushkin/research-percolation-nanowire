@@ -1,0 +1,168 @@
+{
+  "description": "Percolation threshold validation for monodisperse sticks",
+  "parameters": {
+    "eta_range": [
+      4.0,
+      8.0
+    ],
+    "n_points": 25,
+    "n_trials": 200,
+    "domain_size": 20.0,
+    "stick_length": 1.0,
+    "seed": 123
+  },
+  "results": [
+    {
+      "eta": 4.0,
+      "p_percolation": 0.0,
+      "n_trials": 200,
+      "domain_size": 20.0
+    },
+    {
+      "eta": 4.166667,
+      "p_percolation": 0.0,
+      "n_trials": 200,
+      "domain_size": 20.0
+    },
+    {
+      "eta": 4.333333,
+      "p_percolation": 0.0,
+      "n_trials": 200,
+      "domain_size": 20.0
+    },
+    {
+      "eta": 4.5,
+      "p_percolation": 0.0,
+      "n_trials": 200,
+      "domain_size": 20.0
+    },
+    {
+      "eta": 4.666667,
+      "p_percolation": 0.0,
+      "n_trials": 200,
+      "domain_size": 20.0
+    },
+    {
+      "eta": 4.833333,
+      "p_percolation": 0.0,
+      "n_trials": 200,
+      "domain_size": 20.0
+    },
+    {
+      "eta": 5.0,
+      "p_percolation": 0.01,
+      "n_trials": 200,
+      "domain_size": 20.0
+    },
+    {
+      "eta": 5.166667,
+      "p_percolation": 0.03,
+      "n_trials": 200,
+      "domain_size": 20.0
+    },
+    {
+      "eta": 5.333333,
+      "p_percolation": 0.1,
+      "n_trials": 200,
+      "domain_size": 20.0
+    },
+    {
+      "eta": 5.5,
+      "p_percolation": 0.19,
+      "n_trials": 200,
+      "domain_size": 20.0
+    },
+    {
+      "eta": 5.666667,
+      "p_percolation": 0.35,
+      "n_trials": 200,
+      "domain_size": 20.0
+    },
+    {
+      "eta": 5.833333,
+      "p_percolation": 0.455,
+      "n_trials": 200,
+      "domain_size": 20.0
+    },
+    {
+      "eta": 6.0,
+      "p_percolation": 0.72,
+      "n_trials": 200,
+      "domain_size": 20.0
+    },
+    {
+      "eta": 6.166667,
+      "p_percolation": 0.84,
+      "n_trials": 200,
+      "domain_size": 20.0
+    },
+    {
+      "eta": 6.333333,
+      "p_percolation": 0.93,
+      "n_trials": 200,
+      "domain_size": 20.0
+    },
+    {
+      "eta": 6.5,
+      "p_percolation": 0.96,
+      "n_trials": 200,
+      "domain_size": 20.0
+    },
+    {
+      "eta": 6.666667,
+      "p_percolation": 0.985,
+      "n_trials": 200,
+      "domain_size": 20.0
+    },
+    {
+      "eta": 6.833333,
+      "p_percolation": 0.985,
+      "n_trials": 200,
+      "domain_size": 20.0
+    },
+    {
+      "eta": 7.0,
+      "p_percolation": 1.0,
+      "n_trials": 200,
+      "domain_size": 20.0
+    },
+    {
+      "eta": 7.166667,
+      "p_percolation": 1.0,
+      "n_trials": 200,
+      "domain_size": 20.0
+    },
+    {
+      "eta": 7.333333,
+      "p_percolation": 1.0,
+      "n_trials": 200,
+      "domain_size": 20.0
+    },
+    {
+      "eta": 7.5,
+      "p_percolation": 1.0,
+      "n_trials": 200,
+      "domain_size": 20.0
+    },
+    {
+      "eta": 7.666667,
+      "p_percolation": 1.0,
+      "n_trials": 200,
+      "domain_size": 20.0
+    },
+    {
+      "eta": 7.833333,
+      "p_percolation": 1.0,
+      "n_trials": 200,
+      "domain_size": 20.0
+    },
+    {
+      "eta": 8.0,
+      "p_percolation": 1.0,
+      "n_trials": 200,
+      "domain_size": 20.0
+    }
+  ],
+  "eta_c_estimated": 5.8616349433962265,
+  "eta_c_reference": 5.63726
+}

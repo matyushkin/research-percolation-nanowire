@@ -1,0 +1,75 @@
+{
+  "description": "HQ bridge scan for Fig. 3",
+  "parameters": {
+    "n_trials": 150,
+    "domain_size": 15.0
+  },
+  "results": {
+    "parallel": {
+      "1": {
+        "n_cracks": 1,
+        "eta_c": 0.7695
+      },
+      "2": {
+        "n_cracks": 2,
+        "eta_c": 1.1289
+      },
+      "3": {
+        "n_cracks": 3,
+        "eta_c": 1.3086
+      },
+      "5": {
+        "n_cracks": 5,
+        "eta_c": 1.4883
+      },
+      "7": {
+        "n_cracks": 7,
+        "eta_c": 1.668
+      },
+      "10": {
+        "n_cracks": 10,
+        "eta_c": 1.668
+      },
+      "15": {
+        "n_cracks": 15,
+        "eta_c": 1.8477
+      },
+      "20": {
+        "n_cracks": 20,
+        "eta_c": 2.0273
+      },
+      "30": {
+        "n_cracks": 30,
+        "eta_c": 5.6211
+      },
+      "50": {
+        "n_cracks": 50,
+        "eta_c": 5.6211
+      },
+      "80": {
+        "n_cracks": 80,
+        "eta_c": 5.6211
+      },
+      "21": {
+        "n_cracks": 21,
+        "eta_c": 5.666
+      },
+      "22": {
+        "n_cracks": 22,
+        "eta_c": 5.5762
+      },
+      "23": {
+        "n_cracks": 23,
+        "eta_c": 5.666
+      },
+      "24": {
+        "n_cracks": 24,
+        "eta_c": 5.5762
+      },
+      "25": {
+        "n_cracks": 25,
+        "eta_c": 5.666
+      }
+    }
+  }
+}

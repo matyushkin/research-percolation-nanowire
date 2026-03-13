@@ -1,0 +1,117 @@
+{
+  "description": "Bridge percolation: parallel vs Voronoi cracks",
+  "parameters": {
+    "eta_range": [
+      3.0,
+      12.0
+    ],
+    "n_points": 12,
+    "n_trials": 30,
+    "domain_size": 10.0,
+    "n_parallel_cracks": 3,
+    "n_voronoi_seeds": 15,
+    "n_voronoi_segments": 41,
+    "seed": 42
+  },
+  "parallel": [
+    {
+      "eta": 3.0,
+      "p_percolation": 0.9333333333333333
+    },
+    {
+      "eta": 3.818182,
+      "p_percolation": 1.0
+    },
+    {
+      "eta": 4.636364,
+      "p_percolation": 1.0
+    },
+    {
+      "eta": 5.454545,
+      "p_percolation": 1.0
+    },
+    {
+      "eta": 6.272727,
+      "p_percolation": 1.0
+    },
+    {
+      "eta": 7.090909,
+      "p_percolation": 1.0
+    },
+    {
+      "eta": 7.909091,
+      "p_percolation": 1.0
+    },
+    {
+      "eta": 8.727273,
+      "p_percolation": 1.0
+    },
+    {
+      "eta": 9.545455,
+      "p_percolation": 1.0
+    },
+    {
+      "eta": 10.363636,
+      "p_percolation": 1.0
+    },
+    {
+      "eta": 11.181818,
+      "p_percolation": 1.0
+    },
+    {
+      "eta": 12.0,
+      "p_percolation": 1.0
+    }
+  ],
+  "voronoi": [
+    {
+      "eta": 3.0,
+      "p_percolation": 0.0
+    },
+    {
+      "eta": 3.818182,
+      "p_percolation": 0.0
+    },
+    {
+      "eta": 4.636364,
+      "p_percolation": 0.1
+    },
+    {
+      "eta": 5.454545,
+      "p_percolation": 0.26666666666666666
+    },
+    {
+      "eta": 6.272727,
+      "p_percolation": 0.9
+    },
+    {
+      "eta": 7.090909,
+      "p_percolation": 0.9666666666666667
+    },
+    {
+      "eta": 7.909091,
+      "p_percolation": 1.0
+    },
+    {
+      "eta": 8.727273,
+      "p_percolation": 1.0
+    },
+    {
+      "eta": 9.545455,
+      "p_percolation": 1.0
+    },
+    {
+      "eta": 10.363636,
+      "p_percolation": 1.0
+    },
+    {
+      "eta": 11.181818,
+      "p_percolation": 1.0
+    },
+    {
+      "eta": 12.0,
+      "p_percolation": 1.0
+    }
+  ],
+  "eta_c_voronoi": 5.756
+}

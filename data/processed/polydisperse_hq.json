@@ -1,0 +1,99 @@
+{
+  "description": "HQ polydispersity for Fig. 5",
+  "parameters": {
+    "n_trials": 150,
+    "domain_size": 15.0
+  },
+  "results": {
+    "standard": {
+      "0.00": {
+        "polydispersity": 0.0,
+        "eta_c": 5.5703
+      },
+      "0.05": {
+        "polydispersity": 0.05,
+        "eta_c": 5.5703
+      },
+      "0.10": {
+        "polydispersity": 0.1,
+        "eta_c": 5.7109
+      },
+      "0.15": {
+        "polydispersity": 0.15,
+        "eta_c": 5.5703
+      },
+      "0.20": {
+        "polydispersity": 0.2,
+        "eta_c": 5.4297
+      },
+      "0.30": {
+        "polydispersity": 0.3,
+        "eta_c": 5.2891
+      },
+      "0.40": {
+        "polydispersity": 0.4,
+        "eta_c": 5.0078
+      },
+      "0.50": {
+        "polydispersity": 0.5,
+        "eta_c": 4.8672
+      },
+      "0.70": {
+        "polydispersity": 0.7,
+        "eta_c": 4.0234
+      },
+      "1.00": {
+        "polydispersity": 1.0,
+        "eta_c": 3.3203
+      }
+    },
+    "voronoi_sparse": {
+      "0.00": {
+        "polydispersity": 0.0,
+        "eta_c": 2.6172
+      },
+      "0.05": {
+        "polydispersity": 0.05,
+        "eta_c": 2.6172
+      },
+      "0.10": {
+        "polydispersity": 0.1,
+        "eta_c": 2.4766
+      },
+      "0.15": {
+        "polydispersity": 0.15,
+        "eta_c": 2.4766
+      },
+      "0.20": {
+        "polydispersity": 0.2,
+        "eta_c": 2.6172
+      },
+      "0.30": {
+        "polydispersity": 0.3,
+        "eta_c": 2.4766
+      },
+      "0.40": {
+        "polydispersity": 0.4,
+        "eta_c": 2.3359
+      },
+      "0.50": {
+        "polydispersity": 0.5,
+        "eta_c": 2.3359
+      },
+      "0.70": {
+        "polydispersity": 0.7,
+        "eta_c": 2.0547
+      },
+      "1.00": {
+        "polydispersity": 1.0,
+        "eta_c": 1.7734
+      }
+    },
+    "voronoi_dense": {
+      "0.00": {
+        "polydispersity": 0.0,
+        "eta_c": 5.5703
+      }
+    }
+  }
+}

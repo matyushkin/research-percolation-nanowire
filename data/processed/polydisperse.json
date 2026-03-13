@@ -1,0 +1,101 @@
+{
+  "description": "Bridge percolation with polydisperse stick lengths",
+  "parameters": {
+    "n_trials": 60,
+    "domain_size": 12.0,
+    "mean_length": 1.0,
+    "seed": 42
+  },
+  "results": {
+    "parallel": {
+      "0.00": {
+        "polydispersity": 0.0,
+        "eta_c": 1.4297
+      },
+      "0.10": {
+        "polydispersity": 0.1,
+        "eta_c": 1.4297
+      },
+      "0.20": {
+        "polydispersity": 0.2,
+        "eta_c": 1.6016
+      },
+      "0.30": {
+        "polydispersity": 0.3,
+        "eta_c": 1.4297
+      },
+      "0.50": {
+        "polydispersity": 0.5,
+        "eta_c": 1.4297
+      },
+      "0.70": {
+        "polydispersity": 0.7,
+        "eta_c": 1.2578
+      },
+      "1.00": {
+        "polydispersity": 1.0,
+        "eta_c": 1.2578
+      }
+    },
+    "voronoi": {
+      "0.00": {
+        "polydispersity": 0.0,
+        "eta_c": 5.7266
+      },
+      "0.10": {
+        "polydispersity": 0.1,
+        "eta_c": 5.5547
+      },
+      "0.20": {
+        "polydispersity": 0.2,
+        "eta_c": 5.5547
+      },
+      "0.30": {
+        "polydispersity": 0.3,
+        "eta_c": 5.2109
+      },
+      "0.50": {
+        "polydispersity": 0.5,
+        "eta_c": 4.6953
+      },
+      "0.70": {
+        "polydispersity": 0.7,
+        "eta_c": 4.0078
+      },
+      "1.00": {
+        "polydispersity": 1.0,
+        "eta_c": 3.3203
+      }
+    },
+    "standard": {
+      "0.00": {
+        "polydispersity": 0.0,
+        "eta_c": 5.7266
+      },
+      "0.10": {
+        "polydispersity": 0.1,
+        "eta_c": 5.5547
+      },
+      "0.20": {
+        "polydispersity": 0.2,
+        "eta_c": 5.5547
+      },
+      "0.30": {
+        "polydispersity": 0.3,
+        "eta_c": 5.2109
+      },
+      "0.50": {
+        "polydispersity": 0.5,
+        "eta_c": 4.8672
+      },
+      "0.70": {
+        "polydispersity": 0.7,
+        "eta_c": 4.1797
+      },
+      "1.00": {
+        "polydispersity": 1.0,
+        "eta_c": 3.3203
+      }
+    }
+  }
+}
