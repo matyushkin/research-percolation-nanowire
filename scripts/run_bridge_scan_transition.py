@@ -52,8 +52,8 @@ def main():
 
     rng = np.random.default_rng(args.seed + 5000)
 
-    # Transition region for parallel cracks
-    n_cracks_transition = [21, 22, 23, 24, 25, 26, 27, 28, 29]
+    # Transition region for parallel cracks — fill gap 11..29
+    n_cracks_transition = list(range(11, 30))
 
     existing = {}
     if output_path.exists():

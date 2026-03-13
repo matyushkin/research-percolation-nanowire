@@ -53,6 +53,9 @@ branching networks, varying crack widths, and hierarchical patterns
 that depend on film thickness, substrate, and stress
 distribution~\cite{Hutchinson1992,Thouless1992}.
 
+Despite these advances, bridge percolation has so far been
+studied only for parallel cracks, and no results exist for
+random crack topologies.
 Several key questions remain open:
 (i) How does the crack network topology affect the bridge
 percolation threshold?
@@ -331,6 +334,14 @@ $\eta_c(\infty) = 5.6372(1)$~\cite{Li2009}
 Fitting to the scaling ansatz of Eq.~\eqref{eq:fss}
 yields the extrapolated threshold and the correlation length
 exponent~$\nu$.
+Baret~\cite{Baret2025} noted that bridge percolation
+``departs from the scale-invariant behavior of classical
+percolation due to its directional nature,'' referring to
+the anisotropy imposed by the crack orientation in the
+parallel-crack geometry.
+Our FSS analysis tests whether this departure persists
+for isotropic (Voronoi) crack networks, where no preferred
+direction exists.
 
 The finite-size shift $\Delta\eta_c \approx 0.15$ at
 $\mathcal{L}/L = 20$ is typical for stick
@@ -492,8 +503,14 @@ full domain.
 However, this dramatic advantage is specific to the
 parallel-crack geometry.
 Baret~\cite{Baret2025} extended the bridge percolation analysis
-to finite-size scaling and confirmed two-dimensional
-universality of the transition.
+to finite-size scaling for the parallel-crack case and observed
+that the transition departs from classical scale-invariant
+behavior due to the directional nature of the cracks.
+Our results suggest that this anisotropy-induced departure
+is specific to the parallel geometry: for isotropic Voronoi
+cracks, the threshold converges to the standard stick
+percolation value, consistent with the 2D isotropic
+universality class.
 For films with random (isotropic) crack patterns---e.g.,
 thermally cracked or fatigue-cracked ITO---our results
 predict that the material saving over standalone NW
@@ -501,6 +518,22 @@ electrodes is negligible, since
 $\eta_c^\mathrm{Voronoi} \approx \eta_c^\mathrm{standard}$.
 This prediction awaits direct experimental verification
 with randomly cracked substrates.
+
+\textit{Comparison with analytical predictions.}---Baret~\textit{et~al.}~\cite{Baret2024} derived an analytical
+expression for the parallel-crack bridge threshold based on
+a Buffon-needle argument: the probability that a stick of
+length~$L$ oriented at angle~$\theta$ crosses a crack at
+distance~$d$ is $p = L|\cos\theta|/d$ (for $d > L$).
+Integrating over orientations and requiring at least one
+bridge per crack yields a threshold that scales as
+$\eta_c^\mathrm{parallel} \propto d/L$.
+Our numerical result $\eta_c^\mathrm{parallel} \approx 1.3$
+for 3 cracks at $\mathcal{L}/L = 15$ (inter-crack spacing
+$d/L = 3.75$) is consistent with this scaling.
+No analogous analytical formula exists for Voronoi crack
+networks, where the crack segment orientations, lengths,
+and connectivity are all random---highlighting the need for
+the numerical approach developed here.
 
 \textit{Critical crack density for parallel cracks.}---The
 sharp transition at $n_c \approx \mathcal{L}/L$ reveals a
@@ -576,6 +609,10 @@ These results demonstrate that crack topology is a critical
 factor in designing nanowire-bridged transparent electrodes
 and that the parallel-crack model significantly overestimates
 the material saving achievable with random crack networks.
+To our knowledge, this is the first study of bridge percolation
+on random (non-parallel) crack networks, filling a gap between
+the idealized parallel-crack theory~\cite{Baret2024,Baret2025}
+and the complex crack patterns observed in real devices.
 
 % ------ ACKNOWLEDGMENTS ------
 \begin{acknowledgments}

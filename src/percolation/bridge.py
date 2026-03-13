@@ -177,25 +177,32 @@ def _bridge_percolation_island_graph(
     # An island is a region bounded by cracks. For simplicity, we
     # connect sticks that are on the same side of ALL cracks.
 
-    # Assign each stick a "side signature" — which side of each crack it's on
-    if n_cracks <= 20:  # practical limit for signature approach
-        signatures: dict[tuple, list[int]] = {}
-        for i in range(n_sticks):
-            sig = []
-            for cp1, cp2 in crack_segments:
-                sig.append(_assign_stick_to_side(sticks[i], cp1, cp2))
-            sig_tuple = tuple(sig)
-            if sig_tuple not in signatures:
-                signatures[sig_tuple] = []
-            signatures[sig_tuple].append(i)
+    # Assign each stick a "side signature" — which side of each crack it's on.
+    # Vectorized: compute all stick-center vs crack cross products at once.
+    centers = (sticks[:, 0] + sticks[:, 1]) / 2  # (n_sticks, 2)
+    crack_p1 = np.array([cp1 for cp1, _ in crack_segments])  # (n_cracks, 2)
+    crack_p2 = np.array([cp2 for _, cp2 in crack_segments])  # (n_cracks, 2)
+    crack_d = crack_p2 - crack_p1  # (n_cracks, 2)
 
-        # Connect all sticks on the same island
-        for stick_list in signatures.values():
-            for k in range(1, len(stick_list)):
-                uf.union(stick_list[0], stick_list[k])
-    else:
-        # For many cracks, use spatial binning instead
-        _connect_same_island_spatial(sticks, crack_segments, uf, domain_size)
+    # v[i, j] = centers[i] - crack_p1[j]  →  shape (n_sticks, n_cracks, 2)
+    v = centers[:, np.newaxis, :] - crack_p1[np.newaxis, :, :]
+    # cross product: d[j,0]*v[i,j,1] - d[j,1]*v[i,j,0]
+    cross = crack_d[np.newaxis, :, 0] * v[:, :, 1] - crack_d[np.newaxis, :, 1] * v[:, :, 0]
+    # Sign: +1, -1, or 0
+    side_signs = np.sign(cross).astype(np.int8)  # (n_sticks, n_cracks)
+
+    # Group sticks by signature (same island)
+    signatures: dict[bytes, list[int]] = {}
+    for i in range(n_sticks):
+        sig = side_signs[i].tobytes()
+        if sig not in signatures:
+            signatures[sig] = []
+        signatures[sig].append(i)
+
+    # Connect all sticks on the same island
+    for stick_list in signatures.values():
+        for k in range(1, len(stick_list)):
+            uf.union(stick_list[0], stick_list[k])
 
     return uf.connected(left_node, right_node)
 

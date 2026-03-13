@@ -176,7 +176,8 @@ def plot_threshold_vs_cracks():
 # ── Fig. 4: Finite-size scaling ───────────────────────────────
 
 def plot_finite_size_scaling():
-    data = _load("finite_size_scaling_hq") or _load("finite_size_scaling")
+    # Prefer production data, fall back to HQ, then original
+    data = _load("fss_production") or _load("finite_size_scaling_hq") or _load("finite_size_scaling")
     if data is None:
         return
 
@@ -191,11 +192,25 @@ def plot_finite_size_scaling():
         if label not in results:
             continue
         sec = results[label]
-        Ls = sorted(sec.keys(), key=int)
-        x = [sec[k]["domain_size"] for k in Ls]
-        y = [sec[k]["eta_c"] for k in Ls]
-        ax.plot(x, y, f"-{marker}", color=color, label=nice,
-                markersize=4, linewidth=1.0)
+        Ls = sorted(sec.keys(), key=lambda k: int(k))
+        x, y, yerr = [], [], []
+        for k in Ls:
+            entry = sec[k]
+            x.append(entry["domain_size"])
+            if "eta_c_mean" in entry:
+                y.append(entry["eta_c_mean"])
+                yerr.append(entry.get("eta_c_std", 0))
+            else:
+                y.append(entry["eta_c"])
+                yerr.append(0)
+
+        if any(e > 0 for e in yerr):
+            ax.errorbar(x, y, yerr=yerr, fmt=f"-{marker}", color=color,
+                        label=nice, markersize=4, linewidth=1.0,
+                        capsize=2)
+        else:
+            ax.plot(x, y, f"-{marker}", color=color, label=nice,
+                    markersize=4, linewidth=1.0)
 
     ax.axhline(5.637, color="k", linestyle="--", alpha=0.7,
                linewidth=0.9, label=r"$\eta_c = 5.637$")
@@ -213,7 +228,8 @@ def plot_finite_size_scaling():
 # ── Fig. 5: Polydispersity ────────────────────────────────────
 
 def plot_polydispersity():
-    data = _load("polydisperse_hq2") or _load("polydisperse_hq") or _load("polydisperse")
+    # Prefer production data
+    data = _load("polydisperse_production") or _load("polydisperse_hq2") or _load("polydisperse_hq") or _load("polydisperse")
     if data is None:
         return
 
@@ -238,9 +254,15 @@ def plot_polydispersity():
         sec = results[label]
         pds = sorted(sec.keys(), key=float)
         x = [sec[k]["polydispersity"] for k in pds]
-        y = [sec[k]["eta_c"] for k in pds]
-        ax.plot(x, y, f"-{marker}", color=color, label=nice,
-                markersize=3, linewidth=1.0)
+        # Support both eta_c and eta_c_mean keys
+        y = [sec[k].get("eta_c", sec[k].get("eta_c_mean")) for k in pds]
+        yerr = [sec[k].get("eta_c_std", 0) for k in pds]
+        if any(e > 0 for e in yerr):
+            ax.errorbar(x, y, yerr=yerr, fmt=f"-{marker}", color=color,
+                        label=nice, markersize=3, linewidth=1.0, capsize=2)
+        else:
+            ax.plot(x, y, f"-{marker}", color=color, label=nice,
+                    markersize=3, linewidth=1.0)
         plotted.add(label)
 
     ax.set_xlabel(r"Polydispersity $\sigma_L / \langle L \rangle$")

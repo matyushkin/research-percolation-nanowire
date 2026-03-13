@@ -1,0 +1,161 @@
+{
+  "description": "Production FSS for bridge percolation thresholds",
+  "parameters": {
+    "n_trials": 500,
+    "voronoi_realizations": 10,
+    "seed": 12345,
+    "bisection_tol": 0.05
+  },
+  "results": {
+    "standard": {
+      "5": {
+        "domain_size": 5,
+        "eta_c": 6.1094
+      },
+      "8": {
+        "domain_size": 8,
+        "eta_c": 6.0156
+      },
+      "10": {
+        "domain_size": 10,
+        "eta_c": 5.9219
+      },
+      "15": {
+        "domain_size": 15,
+        "eta_c": 5.8594
+      },
+      "20": {
+        "domain_size": 20,
+        "eta_c": 5.7969
+      },
+      "30": {
+        "domain_size": 30,
+        "eta_c": 5.7656
+      },
+      "40": {
+        "domain_size": 40,
+        "eta_c": 5.7344
+      },
+      "50": {
+        "domain_size": 50,
+        "eta_c": 5.7344
+      }
+    },
+    "parallel": {
+      "5": {
+        "domain_size": 5,
+        "n_cracks": 1,
+        "eta_c": 1.7588
+      },
+      "8": {
+        "domain_size": 8,
+        "n_cracks": 2,
+        "eta_c": 1.6686
+      },
+      "10": {
+        "domain_size": 10,
+        "n_cracks": 2,
+        "eta_c": 1.458
+      },
+      "15": {
+        "domain_size": 15,
+        "n_cracks": 3,
+        "eta_c": 1.3377
+      },
+      "20": {
+        "domain_size": 20,
+        "n_cracks": 4,
+        "eta_c": 1.2475
+      },
+      "30": {
+        "domain_size": 30,
+        "n_cracks": 6,
+        "eta_c": 1.067
+      },
+      "40": {
+        "domain_size": 40,
+        "n_cracks": 8,
+        "eta_c": 1.0068
+      },
+      "50": {
+        "domain_size": 50,
+        "n_cracks": 10,
+        "eta_c": 0.8865
+      }
+    },
+    "voronoi": {
+      "5": {
+        "domain_size": 5,
+        "n_voronoi_seeds": 3,
+        "eta_c_values": [
+          2.2676,
+          2.1387,
+          2.3965,
+          2.7402,
+          1.752,
+          1.5371,
+          2.8262,
+          2.6113,
+          2.2246,
+          1.752
+        ],
+        "eta_c_mean": 2.2246,
+        "eta_c_std": 0.4166,
+        "n_segments_last": 5
+      },
+      "8": {
+        "domain_size": 8,
+        "n_voronoi_seeds": 4,
+        "eta_c_values": [
+          2.0957,
+          2.3105,
+          2.3535,
+          2.4395,
+          1.8379,
+          2.0957,
+          2.5254,
+          2.3535,
+          2.1816,
+          2.3535
+        ],
+        "eta_c_mean": 2.2547,
+        "eta_c_std": 0.1922,
+        "n_segments_last": 6
+      },
+      "10": {
+        "domain_size": 10,
+        "n_voronoi_seeds": 7,
+        "eta_c_values": [
+          2.8691,
+          3.2559,
+          2.998,
+          3.1699,
+          2.9121,
+          3.127,
+          3.4277,
+          3.2559,
+          3.2129,
+          3.084
+        ],
+        "eta_c_mean": 3.1313,
+        "eta_c_std": 0.1624,
+        "n_segments_last": 16
+      },
+      "15": {
+        "domain_size": 15,
+        "n_voronoi_seeds": 15,
+        "eta_c_values": [
+          5.6191,
+          5.6191,
+          5.6621,
+          5.6191,
+          5.6191,
+          5.6191
+        ],
+        "eta_c_mean": 5.6263,
+        "eta_c_std": 0.016,
+        "n_segments_last": 34
+      }
+    }
+  }
+}

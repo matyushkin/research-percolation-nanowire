@@ -1,0 +1,237 @@
+{
+  "description": "Production polydispersity: \u03b7_c vs \u03c3/\u27e8L\u27e9",
+  "parameters": {
+    "n_trials": 300,
+    "domain_size": 15.0,
+    "voronoi_realizations": 5,
+    "bisection_tol": 0.1
+  },
+  "results": {
+    "standard": {
+      "0.00": {
+        "polydispersity": 0.0,
+        "eta_c": 5.666
+      },
+      "0.05": {
+        "polydispersity": 0.05,
+        "eta_c": 5.666
+      },
+      "0.10": {
+        "polydispersity": 0.1,
+        "eta_c": 5.5762
+      },
+      "0.15": {
+        "polydispersity": 0.15,
+        "eta_c": 5.5762
+      },
+      "0.20": {
+        "polydispersity": 0.2,
+        "eta_c": 5.5762
+      },
+      "0.30": {
+        "polydispersity": 0.3,
+        "eta_c": 5.3066
+      },
+      "0.40": {
+        "polydispersity": 0.4,
+        "eta_c": 5.0371
+      },
+      "0.50": {
+        "polydispersity": 0.5,
+        "eta_c": 4.7676
+      },
+      "0.70": {
+        "polydispersity": 0.7,
+        "eta_c": 4.1387
+      },
+      "1.00": {
+        "polydispersity": 1.0,
+        "eta_c": 3.3301
+      }
+    },
+    "voronoi_sparse": {
+      "0.00": {
+        "polydispersity": 0.0,
+        "eta_c_values": [
+          2.252,
+          2.7012,
+          2.7012,
+          2.791,
+          2.4316
+        ],
+        "eta_c_mean": 2.5754,
+        "eta_c_std": 0.2017
+      },
+      "0.05": {
+        "polydispersity": 0.05,
+        "eta_c_values": [
+          2.252,
+          2.7012,
+          2.7012,
+          2.791,
+          2.4316
+        ],
+        "eta_c_mean": 2.5754,
+        "eta_c_std": 0.2017
+      },
+      "0.10": {
+        "polydispersity": 0.1,
+        "eta_c_values": [
+          2.252,
+          2.7012,
+          2.7012,
+          2.7012,
+          2.4316
+        ],
+        "eta_c_mean": 2.5574,
+        "eta_c_std": 0.185
+      },
+      "0.15": {
+        "polydispersity": 0.15,
+        "eta_c_values": [
+          2.252,
+          2.7012,
+          2.6113,
+          2.7012,
+          2.4316
+        ],
+        "eta_c_mean": 2.5395,
+        "eta_c_std": 0.1742
+      },
+      "0.20": {
+        "polydispersity": 0.2,
+        "eta_c_values": [
+          2.252,
+          2.7012,
+          2.6113,
+          2.7012,
+          2.4316
+        ],
+        "eta_c_mean": 2.5395,
+        "eta_c_std": 0.1742
+      },
+      "0.30": {
+        "polydispersity": 0.3,
+        "eta_c_values": [
+          2.1621,
+          2.5215,
+          2.5215,
+          2.7012,
+          2.3418
+        ],
+        "eta_c_mean": 2.4496,
+        "eta_c_std": 0.1833
+      },
+      "0.40": {
+        "polydispersity": 0.4,
+        "eta_c_values": [
+          2.0723,
+          2.4316,
+          2.4316,
+          2.5215,
+          2.252
+        ],
+        "eta_c_mean": 2.3418,
+        "eta_c_std": 0.1607
+      },
+      "0.50": {
+        "polydispersity": 0.5,
+        "eta_c_values": [
+          1.9824,
+          2.3418,
+          2.4316,
+          2.4316,
+          2.1621
+        ],
+        "eta_c_mean": 2.2699,
+        "eta_c_std": 0.1742
+      },
+      "0.70": {
+        "polydispersity": 0.7,
+        "eta_c_values": [
+          1.8027,
+          2.1621,
+          2.252,
+          2.252,
+          1.9824
+        ],
+        "eta_c_mean": 2.0902,
+        "eta_c_std": 0.1742
+      },
+      "1.00": {
+        "polydispersity": 1.0,
+        "eta_c_values": [
+          1.623,
+          1.8926,
+          1.9824,
+          1.9824,
+          1.8027
+        ],
+        "eta_c_mean": 1.8566,
+        "eta_c_std": 0.1345
+      }
+    },
+    "voronoi_dense": {
+      "0.00": {
+        "polydispersity": 0.0,
+        "eta_c_values": [
+          5.666,
+          5.666,
+          5.666,
+          5.5762,
+          5.666
+        ],
+        "eta_c_mean": 5.648,
+        "eta_c_std": 0.0359
+      },
+      "0.05": {
+        "polydispersity": 0.05,
+        "eta_c_values": [
+          5.666,
+          5.5762,
+          5.5762,
+          5.5762,
+          5.5762
+        ],
+        "eta_c_mean": 5.5942,
+        "eta_c_std": 0.0359
+      },
+      "0.10": {
+        "polydispersity": 0.1,
+        "eta_c_values": [
+          5.5762,
+          5.5762,
+          5.666,
+          5.5762,
+          5.5762
+        ],
+        "eta_c_mean": 5.5942,
+        "eta_c_std": 0.0359
+      },
+      "0.15": {
+        "polydispersity": 0.15,
+        "eta_c_values": [
+          5.4863,
+          5.4863,
+          5.4863,
+          5.5762,
+          5.4863
+        ],
+        "eta_c_mean": 5.5043,
+        "eta_c_std": 0.036
+      },
+      "0.20": {
+        "polydispersity": 0.2,
+        "eta_c_values": [
+          5.4863,
+          5.4863,
+          5.4863,
+          5.4863,
+          5.4863
+        ],
+        "eta_c_mean": 5.4863,
+        "eta_c_std": 0.0
+      }
+    }
+  }
+}
