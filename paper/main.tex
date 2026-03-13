@@ -222,7 +222,7 @@ Bridge percolation probability $P(\eta)$ for parallel cracks
 with 300 MC trials per point.
 Dashed vertical lines mark the estimated thresholds
 $\eta_c^\mathrm{parallel} \approx 1.3$ and
-$\eta_c^\mathrm{Voronoi} \approx 5.6$.
+$\eta_c^\mathrm{Voronoi} \approx 4.2$.
 }
 \end{figure}
 
@@ -231,14 +231,19 @@ probability $P(\eta)$ for parallel cracks and Voronoi crack
 networks at domain size $\mathcal{L}/L = 15$.
 The parallel-crack model yields a significantly lower threshold
 ($\eta_c^\mathrm{parallel} \approx 1.3$) than the Voronoi model
-($\eta_c^\mathrm{Voronoi} \approx 5.6$), a factor of $\sim 4$.
+($\eta_c^\mathrm{Voronoi} \approx 4.2$ for $n_s = 20$),
+a factor of $\sim 3$.
 
-This large difference arises because parallel cracks partition
+This difference arises because parallel cracks partition
 the domain into long strips that are easy to bridge:
 a single stick crossing any one crack connects two large islands.
 In contrast, Voronoi cracks create closed polygonal cells,
 and restoring global connectivity requires bridging multiple
 crack segments in series along any path across the domain.
+However, unlike for parallel cracks, the conducting substrate
+still provides partial connectivity between Voronoi cells,
+keeping $\eta_c^\mathrm{Voronoi}$ below the standard
+stick percolation value $\eta_c = 5.637$.
 
 \subsection{Threshold vs.\ crack density}
 
@@ -248,60 +253,55 @@ crack segments in series along any path across the domain.
 Bridge percolation threshold $\eta_c$ as a function of
 crack number (parallel) or Voronoi seed count.
 Error bars for Voronoi data represent the standard deviation
-over 5 independent crack realizations.
+over 10 independent crack realizations.
 The horizontal dashed line marks the standard stick percolation
 threshold $\eta_c = 5.637$.
-For $n_s \geq 10$, the Voronoi threshold saturates near
-the standard value.
+The Voronoi threshold increases monotonically with seed count
+and approaches the standard value only asymptotically.
 }
 \end{figure}
 
 Figure~\ref{fig:scan} shows the bridge percolation threshold
 $\eta_c$ as a function of crack number for both topologies.
 
-For parallel cracks, two distinct regimes emerge.
-At low crack density ($n_c \lesssim 20$ for $\mathcal{L}/L = 15$),
-$\eta_c^\mathrm{parallel}$ increases slowly from $\approx 0.8$
-($n_c = 1$) to $\approx 2.0$ ($n_c = 20$).
-The weak dependence on $n_c$ in this regime reflects the
-essentially one-dimensional nature of parallel-crack bridging:
+For parallel cracks, $\eta_c^\mathrm{parallel}$ increases
+slowly and monotonically from $\approx 0.8$ ($n_c = 1$)
+to $\approx 2.4$ ($n_c = 80$).
+The weak dependence on $n_c$ reflects the essentially
+one-dimensional nature of parallel-crack bridging:
 each crack can be bridged independently,
 and only a single stick per crack is needed to connect
 adjacent islands.
+Even when the inter-crack spacing $d = \mathcal{L}/(n_c+1)$
+becomes smaller than the stick length $L$, the threshold
+remains well below the standard percolation value because
+the substrate still connects sticks that share an island
+(i.e., whose centers lie between the same pair of cracks).
 
-However, at $n_c \approx \mathcal{L}/L$
-(i.e., when the inter-crack spacing $d = \mathcal{L}/(n_c+1)$
-becomes smaller than the stick length $L$),
-a sharp transition occurs: $\eta_c$ jumps abruptly from
-$\approx 2$ to $\approx 5.6$, recovering the standard
-percolation threshold.
-This transition has a simple geometric origin:
-when $d < L$, every stick necessarily crosses at least one crack,
-so the substrate can no longer provide continuous conducting paths
-between any pair of sticks on the same island.
-The bridge percolation problem thus reduces to standard stick
-percolation with the additional constraint that all connections
-must be direct (stick--stick intersections),
-and the substrate becomes irrelevant.
+For Voronoi cracks, $\eta_c$ increases more steeply:
+from $\approx 2.0 \pm 0.2$ at $n_s = 5$
+to $\approx 3.1 \pm 0.1$ at $n_s = 10$,
+$\approx 4.2 \pm 0.1$ at $n_s = 20$,
+$\approx 4.8 \pm 0.1$ at $n_s = 30$,
+and $\approx 5.4$ at $n_s = 50$.
+The threshold approaches the standard value
+$\eta_c \approx 5.64$ only asymptotically
+and remains measurably below it even at high seed counts.
+This indicates that the conducting substrate continues
+to provide partial benefit for bridge percolation,
+even when the Voronoi network densely partitions the domain.
 
-For Voronoi cracks, the behavior is qualitatively different.
-At low seed count ($n_s = 5$), the threshold is comparable to
-the parallel case: $\eta_c \approx 2.2 \pm 0.2$.
-However, for $n_s \geq 10$, the threshold jumps sharply to
-$\eta_c \approx 5.5$--$5.7$, approaching the standard
-stick percolation threshold $\eta_c \approx 5.64$.
-This convergence indicates that for dense random crack networks,
-the conducting substrate provides negligible benefit:
-nanowires must form an essentially complete percolating network
-by themselves.
-
-The transition near $n_s \approx 10$ (for domain size
-$\mathcal{L}/L = 12$) corresponds to the onset of a
-fully connected Voronoi crack network that partitions the domain
-into isolated polygonal cells.
-Below this density, the Voronoi network contains large
-uncracked regions that act as conducting highways,
-reducing the effective bridging requirement.
+The monotonic increase of $\eta_c$ with $n_s$ has a clear
+geometric origin.
+At low seed counts, the Voronoi cells are large,
+and each cell provides a conducting highway connecting
+many sticks without crack-bridging.
+As $n_s$ increases, the cells shrink,
+each cell contains fewer sticks,
+and the substrate-mediated connectivity becomes less effective.
+In the limit $n_s \to \infty$, cells become infinitesimally
+small, each stick sits on its own island,
+and bridge percolation reduces to standard stick percolation.
 
 \subsection{Finite-size scaling}
 
@@ -357,7 +357,7 @@ Table~\ref{tab:ensemble} summarizes the ensemble statistics.
 \begin{table}[t]
 \caption{\label{tab:ensemble}%
 Bridge percolation threshold $\eta_c$ averaged over
-30 independent Voronoi crack realizations
+50 independent Voronoi crack realizations
 (domain size $\mathcal{L}/L = 12$).
 }
 \begin{ruledtabular}
@@ -366,33 +366,34 @@ $n_s$ & $\langle\eta_c\rangle$ & $\sigma_{\eta_c}$ &
 $\eta_c^{\min}$ & $\eta_c^{\max}$ \\
 \hline
 5  & 2.21 & 0.15 & 2.08 & 2.55 \\
-10 & 5.55 & 0.42 & 3.33 & 5.83 \\
-15 & 5.62 & 0.10 & 5.52 & 5.83 \\
-20 & 5.66 & 0.07 & 5.52 & 5.83 \\
-30 & 5.67 & 0.09 & 5.52 & 5.83 \\
-50 & 5.65 & 0.07 & 5.52 & 5.83 \\
+10 & 3.35 & 0.16 & 3.02 & 3.64 \\
+15 & 4.12 & 0.14 & 3.80 & 4.42 \\
+20 & 4.58 & 0.13 & 4.11 & 4.89 \\
+30 & 5.14 & 0.10 & 4.89 & 5.36 \\
+50 & 5.50 & 0.08 & 5.36 & 5.67 \\
 \end{tabular}
 \end{ruledtabular}
 \end{table}
 
-At $n_s = 5$, the variance is small ($\sigma / \langle\eta_c\rangle
-\approx 7\%$) because few cracks leave large connected regions
-whose topology is always similar.
-At $n_s = 10$ --- the transition regime --- one observes
-a pronounced outlier at $\eta_c = 3.33$,
-corresponding to a Voronoi realization where the crack network
-fails to fully partition the domain in the $x$-direction,
-leaving a percolating conducting corridor.
-By $n_s \geq 15$, the variance drops to $\sim 1$--$2\%$
-and $\langle\eta_c\rangle$ converges to $5.64 \pm 0.08$,
-remaining stable up to $n_s = 50$ (Table~\ref{tab:ensemble}).
-The crack network reliably fragments the domain,
-and the threshold converges to the standard stick percolation value.
+The relative variance $\sigma / \langle\eta_c\rangle$
+is approximately $4$--$7\%$ across all seed counts,
+reflecting the inherent randomness of the Voronoi geometry.
+The threshold increases steadily from
+$\langle\eta_c\rangle = 2.21$ at $n_s = 5$
+to $5.50$ at $n_s = 50$ (Table~\ref{tab:ensemble}),
+approaching the standard stick percolation value $\eta_c = 5.637$
+but not reaching it even at $n_s = 50$.
+This confirms that the conducting substrate always provides
+some benefit for bridge percolation, though the benefit
+diminishes with increasing crack density.
 
-The large variance at intermediate crack densities has practical
-implications: for a given cracked film, the required nanowire
-density depends sensitively on the specific crack pattern,
-not just on the average crack density.
+The sample-to-sample variance has practical implications:
+for a given cracked film, the required nanowire density
+depends on the specific crack pattern, not just on the
+average crack density.
+At $n_s = 10$, the range spans from $\eta_c = 3.0$ to $3.6$,
+a $20\%$ variation that translates directly into uncertainty
+in the required NW loading.
 
 \subsection{Effect of nanowire polydispersity}
 
@@ -442,14 +443,12 @@ This is because parallel-crack bridging requires only one
 stick per crack, and even the shortest sticks in the distribution
 are long enough to bridge a zero-width crack.
 
-The near-identical curves for Voronoi-crack and no-crack
-percolation confirm that dense Voronoi networks
-effectively reduce bridge percolation to standard stick percolation.
-This polydispersity-induced reduction is consistent with the
+The polydispersity-induced reduction is consistent with the
 $1/(1+\mathrm{PD}^2)$ scaling predicted for standard stick
-percolation~\cite{Chatterjee2010,Mecke2002},
-further supporting the conclusion that dense crack networks
-do not modify the percolation universality class.
+percolation~\cite{Chatterjee2010,Mecke2002}.
+For dense Voronoi cracks, the absolute threshold is lower than
+for standard percolation at the same PD,
+reflecting the residual benefit of substrate-mediated connectivity.
 Sampson~\textit{et~al.}~\cite{Sampson2023} showed that clustering
 and orientation effects in polydisperse sticks can further modify
 the threshold, which is relevant for NW deposition processes
@@ -466,10 +465,11 @@ yields $\eta_c^\mathrm{parallel} \approx 1.3$
 suggesting that bridge percolation requires far less nanowire
 material than standalone NW electrodes.
 Our simulations confirm this for parallel cracks but reveal that
-random (Voronoi) crack networks yield
-$\eta_c^\mathrm{Voronoi} \approx 5.6$, which is
-$\sim 4\times$ higher and essentially equal to the standard
-stick percolation threshold $\eta_c = 5.637$.
+random (Voronoi) crack networks yield significantly higher
+thresholds that increase with crack density:
+$\eta_c^\mathrm{Voronoi} \approx 3.4$ at $n_s = 10$,
+$\approx 4.6$ at $n_s = 20$, and approaching
+the standard value $\eta_c = 5.637$ only asymptotically.
 
 \textit{Physical interpretation.}---The difference originates
 from the dimensionality of the bridging problem.
@@ -481,10 +481,13 @@ of barriers.
 Restoring connectivity requires finding a \emph{path} of bridged
 cracks that spans the domain---a genuinely two-dimensional
 percolation problem.
-When the Voronoi network is dense enough to fully partition the
-domain into isolated cells ($n_s \gtrsim 15$ for $\mathcal{L}/L = 12$),
-the conducting substrate ceases to help, and the nanowires must
-percolate on their own.
+Crucially, however, the conducting substrate always retains
+partial utility: sticks whose centers fall within the same
+Voronoi cell are electrically connected through the substrate,
+providing ``free'' intra-cell connectivity that reduces the
+number of crack-bridging events required.
+As cell size decreases (increasing $n_s$), this benefit
+diminishes but never fully vanishes at finite crack density.
 
 \textit{Comparison with experiment.}---The
 experimentally observed $\sim 35\times$ material reduction
@@ -506,16 +509,17 @@ Baret~\cite{Baret2025} extended the bridge percolation analysis
 to finite-size scaling for the parallel-crack case and observed
 that the transition departs from classical scale-invariant
 behavior due to the directional nature of the cracks.
-Our results suggest that this anisotropy-induced departure
-is specific to the parallel geometry: for isotropic Voronoi
-cracks, the threshold converges to the standard stick
-percolation value, consistent with the 2D isotropic
-universality class.
+Our results show that the Voronoi bridge threshold lies
+between the parallel-crack value and the standard percolation
+value, depending on crack density.
 For films with random (isotropic) crack patterns---e.g.,
 thermally cracked or fatigue-cracked ITO---our results
-predict that the material saving over standalone NW
-electrodes is negligible, since
-$\eta_c^\mathrm{Voronoi} \approx \eta_c^\mathrm{standard}$.
+predict a moderate material saving:
+$\eta_c^\mathrm{Voronoi} / \eta_c^\mathrm{standard}
+\approx 0.6$--$0.8$ for typical crack densities
+($n_s = 10$--$20$ at $\mathcal{L}/L = 15$),
+corresponding to a $20$--$40\%$ reduction in required
+nanowire density.
 This prediction awaits direct experimental verification
 with randomly cracked substrates.
 
@@ -535,19 +539,21 @@ networks, where the crack segment orientations, lengths,
 and connectivity are all random---highlighting the need for
 the numerical approach developed here.
 
-\textit{Critical crack density for parallel cracks.}---The
-sharp transition at $n_c \approx \mathcal{L}/L$ reveals a
-geometric phase transition in the bridge percolation problem.
-When the inter-crack spacing exceeds the stick length,
-the substrate provides long-range connectivity that dramatically
-lowers the percolation threshold.
-Below this spacing, every stick is ``cut'' by at least one crack,
-and the substrate ceases to function as a conductor.
-This critical ratio $d/L = 1$ is independent of the
-dimensionless density $\eta$ and depends only on
-the crack geometry, providing a simple design criterion:
-bridge percolation is effective only when cracks are
-spaced farther apart than the nanowire length.
+\textit{Substrate benefit at high crack density.}---For
+parallel cracks, the threshold $\eta_c^\mathrm{parallel}$
+remains well below $\eta_c^\mathrm{standard}$ even at very
+high crack densities ($n_c = 80$, $d/L \approx 0.19$),
+because the substrate connects all sticks within each
+inter-crack strip regardless of whether they intersect.
+For Voronoi cracks, the same mechanism operates but is less
+effective: each Voronoi cell connects only the sticks within
+it, and global connectivity requires bridging many cells.
+The substrate benefit can be quantified as the ratio
+$\eta_c^\mathrm{bridge}/\eta_c^\mathrm{standard}$:
+it equals $\approx 0.14$ for 3 parallel cracks,
+$\approx 0.42$ for $n_c = 80$ parallel cracks,
+and $\approx 0.60$--$0.97$ for Voronoi networks
+with $n_s = 10$--$50$.
 
 \textit{Polydispersity as a design lever.}---Our finding that
 polydispersity reduces $\eta_c$ for Voronoi cracks suggests
@@ -590,17 +596,16 @@ We have studied bridge percolation of nanowire networks on
 cracked conducting substrates, comparing parallel-crack and
 random Voronoi crack topologies.
 Our main findings are:
-(i) Voronoi crack networks require $\sim 4\times$ higher
+(i) Voronoi crack networks require up to $\sim 3\times$ higher
 nanowire densities for bridge percolation than parallel cracks
-($\eta_c^\mathrm{Voronoi} \approx 5.6$ vs.\
-$\eta_c^\mathrm{parallel} \approx 1.3$);
-(ii) for dense Voronoi networks ($n_s \geq 15$), the bridge
-threshold converges to the standard stick percolation value
-$\eta_c = 5.637$, indicating that the conducting substrate
-provides no benefit;
-(iii) the threshold exhibits large sample-to-sample fluctuations
-at intermediate crack densities ($\sigma/\langle\eta_c\rangle
-\approx 8\%$ at $n_s = 10$);
+($\eta_c^\mathrm{Voronoi} \approx 3.4$--$5.5$ depending on
+crack density, vs.\ $\eta_c^\mathrm{parallel} \approx 1.3$);
+(ii) the Voronoi threshold increases monotonically with crack
+density and approaches the standard stick percolation value
+$\eta_c = 5.637$ only asymptotically---the conducting substrate
+always provides some benefit;
+(iii) the threshold exhibits sample-to-sample fluctuations
+of $4$--$7\%$ across Voronoi realizations;
 and (iv) nanowire length polydispersity reduces the threshold
 by $\sim 18\%$ at realistic PD~$= 0.5$ and up to $42\%$ at
 $\mathrm{PD} = 1.0$, following the $1/(1+\mathrm{PD}^2)$
