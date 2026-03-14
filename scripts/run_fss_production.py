@@ -144,7 +144,7 @@ def main():
 
     domain_sizes = [5, 8, 10, 15, 20, 30, 40, 50]
     n_parallel_cracks_base = 3  # at L=15
-    n_voronoi_seeds_base = 15   # at L=15
+    n_voronoi_seeds = 15        # fixed for all L (same problem, different system size)
 
     # Load existing
     existing = {}
@@ -233,8 +233,9 @@ def main():
                 print(f"  L={L:3d}: η_c = {d['eta_c_mean']:.4f} ± {d['eta_c_std']:.4f}  [cached, {n_done} realizations]")
                 continue
 
-        # Scale Voronoi seeds with domain area
-        n_seeds = max(3, round(n_voronoi_seeds_base * (L / 15.0) ** 2))
+        # Fixed number of Voronoi seeds for all L
+        # (FSS = same problem at different system sizes)
+        n_seeds = n_voronoi_seeds
 
         # Load partial results
         entry = all_results["voronoi"].get(key, {
